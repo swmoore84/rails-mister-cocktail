@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="show-heading">
+    <h1><%= @cocktail.name %></h1>
+  </div>
+
+  <div class="show">
+    <div>
+      <%= image_tag "https://source.unsplash.com/dmkmrNptMpw"%> <br>
+      <%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class: "btn btn-gradient" %>
+    </div>
+  <div>
+    <ul class="list-group">
+    <% @cocktail.doses.each do |dose| %>
+      <li class="list-group-item"><%= dose.description %><br>
+      <%= dose.ingredient.name %><br>
+      <%= link_to "Delete dose", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+  </div>
+</div>

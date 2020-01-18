@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>RailsMisterCocktail</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +11,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= @body_class %>">
+    <div class="navbar">
+      <%= link_to cocktails_path do %>
+        <%= image_tag "logo2.png", width: 150 %>
+      <% end %>
+      <div><%= link_to "Create cocktail", new_cocktail_path, class: "btn btn-ghost" %></div>
+    </div>
+      <%= yield %>
+    <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
+    <%= javascript_pack_tag "application" %>
   </body>
 </html>
+
+
+
