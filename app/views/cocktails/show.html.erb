@@ -5,7 +5,7 @@
 
   <div class="show">
     <div>
-      <%= image_tag "https://source.unsplash.com/dmkmrNptMpw"%> <br>
+      <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %> <br>
       <%= link_to "Add dose", new_cocktail_dose_path(@cocktail), class: "btn btn-gradient" %>
     </div>
   <div>
