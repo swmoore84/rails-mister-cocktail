@@ -9,7 +9,11 @@
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail) do %>
+        <% if cocktail.photo.attached? %>
         <div class="card" style="background-image: url('<%= cl_image_path cocktail.photo.key %>')">
+        <% else %>
+        <div class="card" style="background-image: url('<%= cl_image_path "adam-jaime-dmkmrNptMpw-unsplash_gbpaxl" %>')">
+        <% end %>
           <%= cocktail.name %>
         </div>
       <% end %>
